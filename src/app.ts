@@ -1,5 +1,7 @@
+import { toNodeHandler } from "better-auth/node";
 import cors from "cors";
 import express, { Application } from "express";
+import { auth } from "./lib/auth";
 import errorHandler from "./middleware/globalErrorHandler";
 import { notFound } from "./middleware/notFound";
 
@@ -13,6 +15,24 @@ app.use(
 );
 
 app.use(express.json());
+
+// Register
+app.post("/api/auth/register", async (req, res) => {
+  req.url = "/sign-up";
+  return await toNodeHandler(auth)(req, res);
+});
+
+// Login
+app.post("/api/auth/login", async (req, res) => {
+  req.url = "/sign-in";
+  return await toNodeHandler(auth)(req, res);
+});
+
+// Me
+app.get("/api/auth/me", async (req, res) => {
+  req.url = "/get-session";
+  return await toNodeHandler(auth)(req, res);
+});
 
 // app.all("/api/auth/*splat", toNodeHandler(auth));
 
