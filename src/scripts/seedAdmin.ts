@@ -1,0 +1,49 @@
+import { prisma } from "../lib/prisma";
+import { UserRole } from "../middleware/auth";
+
+async function seedAdmin() {
+  try {
+    const adminData = {
+      name: "Admin User1",
+      email: "admin1@admin.com",
+      role: UserRole.ADMIN,
+      password: "admin1234",
+    };
+    // check user already exists or not
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        email: adminData.email,
+      },
+    });
+
+    if (existingUser) {
+      throw new Error("User info already exists!!");
+    }
+
+    const signUpAdmin = await fetch(
+      "http://localhost:3000/api/auth/sign-up/email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(adminData),
+      },
+    );
+
+    if (signUpAdmin.ok) {
+      await prisma.user.update({
+        where: {
+          email: adminData.email,
+        },
+        data: {
+          emailVerified: true,
+        },
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+seedAdmin();
