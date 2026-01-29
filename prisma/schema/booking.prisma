@@ -1,0 +1,28 @@
+model Booking {
+  id          String        @id @default(uuid())
+  bookingDate DateTime
+  status      BookingStatus @default(PENDING)
+  totalAmount Float
+
+  studentId   String
+  student     User          @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  tutorId     String
+  tutor       TutorProfile  @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  review      Review?
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([studentId])
+  @@index([tutorId])
+  @@map("bookings")
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}

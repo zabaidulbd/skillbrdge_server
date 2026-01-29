@@ -1,0 +1,30 @@
+model TutorProfile {
+  id            String      @id @default(uuid())
+  bio           String      @db.Text
+  experience    Int         @default(0)
+  hourlyRate    Float
+  subjects      String[]   
+  averageRating Float       @default(0.0)
+  status        TutorStatus @default(ACTIVE)
+  
+  userId        String      @unique
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  categoryId    String
+  category      Category    @relation(fields: [categoryId], references: [id])
+  
+  bookings      Booking[]
+  reviews       Review[]
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([userId])
+  @@index([categoryId])
+  @@map("tutor_profiles")
+}
+
+enum TutorStatus {
+  ACTIVE
+  INACTIVE
+}
