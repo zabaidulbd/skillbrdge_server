@@ -41,7 +41,6 @@ export type ReviewMinAggregateOutputType = {
   bookingId: string | null
   studentId: string | null
   tutorId: string | null
-  status: $Enums.ReviewStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -53,7 +52,6 @@ export type ReviewMaxAggregateOutputType = {
   bookingId: string | null
   studentId: string | null
   tutorId: string | null
-  status: $Enums.ReviewStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -65,7 +63,6 @@ export type ReviewCountAggregateOutputType = {
   bookingId: number
   studentId: number
   tutorId: number
-  status: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -87,7 +84,6 @@ export type ReviewMinAggregateInputType = {
   bookingId?: true
   studentId?: true
   tutorId?: true
-  status?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -99,7 +95,6 @@ export type ReviewMaxAggregateInputType = {
   bookingId?: true
   studentId?: true
   tutorId?: true
-  status?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -111,7 +106,6 @@ export type ReviewCountAggregateInputType = {
   bookingId?: true
   studentId?: true
   tutorId?: true
-  status?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -210,7 +204,6 @@ export type ReviewGroupByOutputType = {
   bookingId: string
   studentId: string
   tutorId: string
-  status: $Enums.ReviewStatus
   createdAt: Date
   updatedAt: Date
   _count: ReviewCountAggregateOutputType | null
@@ -245,7 +238,6 @@ export type ReviewWhereInput = {
   bookingId?: Prisma.StringFilter<"Review"> | string
   studentId?: Prisma.StringFilter<"Review"> | string
   tutorId?: Prisma.StringFilter<"Review"> | string
-  status?: Prisma.EnumReviewStatusFilter<"Review"> | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   booking?: Prisma.XOR<Prisma.BookingScalarRelationFilter, Prisma.BookingWhereInput>
@@ -260,7 +252,6 @@ export type ReviewOrderByWithRelationInput = {
   bookingId?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
   tutorId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   booking?: Prisma.BookingOrderByWithRelationInput
@@ -278,7 +269,6 @@ export type ReviewWhereUniqueInput = Prisma.AtLeast<{
   rating?: Prisma.IntFilter<"Review"> | number
   studentId?: Prisma.StringFilter<"Review"> | string
   tutorId?: Prisma.StringFilter<"Review"> | string
-  status?: Prisma.EnumReviewStatusFilter<"Review"> | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
   booking?: Prisma.XOR<Prisma.BookingScalarRelationFilter, Prisma.BookingWhereInput>
@@ -293,7 +283,6 @@ export type ReviewOrderByWithAggregationInput = {
   bookingId?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
   tutorId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ReviewCountOrderByAggregateInput
@@ -313,7 +302,6 @@ export type ReviewScalarWhereWithAggregatesInput = {
   bookingId?: Prisma.StringWithAggregatesFilter<"Review"> | string
   studentId?: Prisma.StringWithAggregatesFilter<"Review"> | string
   tutorId?: Prisma.StringWithAggregatesFilter<"Review"> | string
-  status?: Prisma.EnumReviewStatusWithAggregatesFilter<"Review"> | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Review"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Review"> | Date | string
 }
@@ -322,7 +310,6 @@ export type ReviewCreateInput = {
   id?: string
   content: string
   rating?: number
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   booking: Prisma.BookingCreateNestedOneWithoutReviewInput
@@ -337,7 +324,6 @@ export type ReviewUncheckedCreateInput = {
   bookingId: string
   studentId: string
   tutorId: string
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -346,7 +332,6 @@ export type ReviewUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   booking?: Prisma.BookingUpdateOneRequiredWithoutReviewNestedInput
@@ -361,7 +346,6 @@ export type ReviewUncheckedUpdateInput = {
   bookingId?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
   tutorId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -373,7 +357,6 @@ export type ReviewCreateManyInput = {
   bookingId: string
   studentId: string
   tutorId: string
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -382,7 +365,6 @@ export type ReviewUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -394,19 +376,8 @@ export type ReviewUncheckedUpdateManyInput = {
   bookingId?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
   tutorId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type ReviewListRelationFilter = {
-  every?: Prisma.ReviewWhereInput
-  some?: Prisma.ReviewWhereInput
-  none?: Prisma.ReviewWhereInput
-}
-
-export type ReviewOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
 }
 
 export type ReviewNullableScalarRelationFilter = {
@@ -421,7 +392,6 @@ export type ReviewCountOrderByAggregateInput = {
   bookingId?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
   tutorId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -437,7 +407,6 @@ export type ReviewMaxOrderByAggregateInput = {
   bookingId?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
   tutorId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -449,7 +418,6 @@ export type ReviewMinOrderByAggregateInput = {
   bookingId?: Prisma.SortOrder
   studentId?: Prisma.SortOrder
   tutorId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -458,46 +426,14 @@ export type ReviewSumOrderByAggregateInput = {
   rating?: Prisma.SortOrder
 }
 
-export type ReviewCreateNestedManyWithoutStudentInput = {
-  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
-  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
-  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
-  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+export type ReviewListRelationFilter = {
+  every?: Prisma.ReviewWhereInput
+  some?: Prisma.ReviewWhereInput
+  none?: Prisma.ReviewWhereInput
 }
 
-export type ReviewUncheckedCreateNestedManyWithoutStudentInput = {
-  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
-  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
-  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
-  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-}
-
-export type ReviewUpdateManyWithoutStudentNestedInput = {
-  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
-  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
-  upsert?: Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput[]
-  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
-  set?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  disconnect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  delete?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  update?: Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput[]
-  updateMany?: Prisma.ReviewUpdateManyWithWhereWithoutStudentInput | Prisma.ReviewUpdateManyWithWhereWithoutStudentInput[]
-  deleteMany?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
-}
-
-export type ReviewUncheckedUpdateManyWithoutStudentNestedInput = {
-  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
-  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
-  upsert?: Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput[]
-  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
-  set?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  disconnect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  delete?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
-  update?: Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput[]
-  updateMany?: Prisma.ReviewUpdateManyWithWhereWithoutStudentInput | Prisma.ReviewUpdateManyWithWhereWithoutStudentInput[]
-  deleteMany?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
+export type ReviewOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type ReviewCreateNestedOneWithoutBookingInput = {
@@ -538,10 +474,6 @@ export type IntFieldUpdateOperationsInput = {
   decrement?: number
   multiply?: number
   divide?: number
-}
-
-export type EnumReviewStatusFieldUpdateOperationsInput = {
-  set?: $Enums.ReviewStatus
 }
 
 export type ReviewCreateNestedManyWithoutTutorInput = {
@@ -586,74 +518,52 @@ export type ReviewUncheckedUpdateManyWithoutTutorNestedInput = {
   deleteMany?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
 }
 
-export type ReviewCreateWithoutStudentInput = {
-  id?: string
-  content: string
-  rating?: number
-  status?: $Enums.ReviewStatus
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  booking: Prisma.BookingCreateNestedOneWithoutReviewInput
-  tutor: Prisma.TutorProfileCreateNestedOneWithoutReviewsInput
+export type ReviewCreateNestedManyWithoutStudentInput = {
+  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
+  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
+  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
+  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
 }
 
-export type ReviewUncheckedCreateWithoutStudentInput = {
-  id?: string
-  content: string
-  rating?: number
-  bookingId: string
-  tutorId: string
-  status?: $Enums.ReviewStatus
-  createdAt?: Date | string
-  updatedAt?: Date | string
+export type ReviewUncheckedCreateNestedManyWithoutStudentInput = {
+  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
+  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
+  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
+  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
 }
 
-export type ReviewCreateOrConnectWithoutStudentInput = {
-  where: Prisma.ReviewWhereUniqueInput
-  create: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput>
+export type ReviewUpdateManyWithoutStudentNestedInput = {
+  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
+  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
+  upsert?: Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput[]
+  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
+  set?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  disconnect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  delete?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  update?: Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput[]
+  updateMany?: Prisma.ReviewUpdateManyWithWhereWithoutStudentInput | Prisma.ReviewUpdateManyWithWhereWithoutStudentInput[]
+  deleteMany?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
 }
 
-export type ReviewCreateManyStudentInputEnvelope = {
-  data: Prisma.ReviewCreateManyStudentInput | Prisma.ReviewCreateManyStudentInput[]
-  skipDuplicates?: boolean
-}
-
-export type ReviewUpsertWithWhereUniqueWithoutStudentInput = {
-  where: Prisma.ReviewWhereUniqueInput
-  update: Prisma.XOR<Prisma.ReviewUpdateWithoutStudentInput, Prisma.ReviewUncheckedUpdateWithoutStudentInput>
-  create: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput>
-}
-
-export type ReviewUpdateWithWhereUniqueWithoutStudentInput = {
-  where: Prisma.ReviewWhereUniqueInput
-  data: Prisma.XOR<Prisma.ReviewUpdateWithoutStudentInput, Prisma.ReviewUncheckedUpdateWithoutStudentInput>
-}
-
-export type ReviewUpdateManyWithWhereWithoutStudentInput = {
-  where: Prisma.ReviewScalarWhereInput
-  data: Prisma.XOR<Prisma.ReviewUpdateManyMutationInput, Prisma.ReviewUncheckedUpdateManyWithoutStudentInput>
-}
-
-export type ReviewScalarWhereInput = {
-  AND?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
-  OR?: Prisma.ReviewScalarWhereInput[]
-  NOT?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
-  id?: Prisma.StringFilter<"Review"> | string
-  content?: Prisma.StringFilter<"Review"> | string
-  rating?: Prisma.IntFilter<"Review"> | number
-  bookingId?: Prisma.StringFilter<"Review"> | string
-  studentId?: Prisma.StringFilter<"Review"> | string
-  tutorId?: Prisma.StringFilter<"Review"> | string
-  status?: Prisma.EnumReviewStatusFilter<"Review"> | $Enums.ReviewStatus
-  createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
+export type ReviewUncheckedUpdateManyWithoutStudentNestedInput = {
+  create?: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput> | Prisma.ReviewCreateWithoutStudentInput[] | Prisma.ReviewUncheckedCreateWithoutStudentInput[]
+  connectOrCreate?: Prisma.ReviewCreateOrConnectWithoutStudentInput | Prisma.ReviewCreateOrConnectWithoutStudentInput[]
+  upsert?: Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpsertWithWhereUniqueWithoutStudentInput[]
+  createMany?: Prisma.ReviewCreateManyStudentInputEnvelope
+  set?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  disconnect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  delete?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  connect?: Prisma.ReviewWhereUniqueInput | Prisma.ReviewWhereUniqueInput[]
+  update?: Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput | Prisma.ReviewUpdateWithWhereUniqueWithoutStudentInput[]
+  updateMany?: Prisma.ReviewUpdateManyWithWhereWithoutStudentInput | Prisma.ReviewUpdateManyWithWhereWithoutStudentInput[]
+  deleteMany?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
 }
 
 export type ReviewCreateWithoutBookingInput = {
   id?: string
   content: string
   rating?: number
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   student: Prisma.UserCreateNestedOneWithoutReviewsInput
@@ -666,7 +576,6 @@ export type ReviewUncheckedCreateWithoutBookingInput = {
   rating?: number
   studentId: string
   tutorId: string
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -691,7 +600,6 @@ export type ReviewUpdateWithoutBookingInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   student?: Prisma.UserUpdateOneRequiredWithoutReviewsNestedInput
@@ -704,7 +612,6 @@ export type ReviewUncheckedUpdateWithoutBookingInput = {
   rating?: Prisma.IntFieldUpdateOperationsInput | number
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
   tutorId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -713,7 +620,6 @@ export type ReviewCreateWithoutTutorInput = {
   id?: string
   content: string
   rating?: number
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   booking: Prisma.BookingCreateNestedOneWithoutReviewInput
@@ -726,7 +632,6 @@ export type ReviewUncheckedCreateWithoutTutorInput = {
   rating?: number
   bookingId: string
   studentId: string
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -757,48 +662,64 @@ export type ReviewUpdateManyWithWhereWithoutTutorInput = {
   data: Prisma.XOR<Prisma.ReviewUpdateManyMutationInput, Prisma.ReviewUncheckedUpdateManyWithoutTutorInput>
 }
 
-export type ReviewCreateManyStudentInput = {
+export type ReviewScalarWhereInput = {
+  AND?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
+  OR?: Prisma.ReviewScalarWhereInput[]
+  NOT?: Prisma.ReviewScalarWhereInput | Prisma.ReviewScalarWhereInput[]
+  id?: Prisma.StringFilter<"Review"> | string
+  content?: Prisma.StringFilter<"Review"> | string
+  rating?: Prisma.IntFilter<"Review"> | number
+  bookingId?: Prisma.StringFilter<"Review"> | string
+  studentId?: Prisma.StringFilter<"Review"> | string
+  tutorId?: Prisma.StringFilter<"Review"> | string
+  createdAt?: Prisma.DateTimeFilter<"Review"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Review"> | Date | string
+}
+
+export type ReviewCreateWithoutStudentInput = {
+  id?: string
+  content: string
+  rating?: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  booking: Prisma.BookingCreateNestedOneWithoutReviewInput
+  tutor: Prisma.TutorProfileCreateNestedOneWithoutReviewsInput
+}
+
+export type ReviewUncheckedCreateWithoutStudentInput = {
   id?: string
   content: string
   rating?: number
   bookingId: string
   tutorId: string
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
 
-export type ReviewUpdateWithoutStudentInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.StringFieldUpdateOperationsInput | string
-  rating?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  booking?: Prisma.BookingUpdateOneRequiredWithoutReviewNestedInput
-  tutor?: Prisma.TutorProfileUpdateOneRequiredWithoutReviewsNestedInput
+export type ReviewCreateOrConnectWithoutStudentInput = {
+  where: Prisma.ReviewWhereUniqueInput
+  create: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput>
 }
 
-export type ReviewUncheckedUpdateWithoutStudentInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.StringFieldUpdateOperationsInput | string
-  rating?: Prisma.IntFieldUpdateOperationsInput | number
-  bookingId?: Prisma.StringFieldUpdateOperationsInput | string
-  tutorId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type ReviewCreateManyStudentInputEnvelope = {
+  data: Prisma.ReviewCreateManyStudentInput | Prisma.ReviewCreateManyStudentInput[]
+  skipDuplicates?: boolean
 }
 
-export type ReviewUncheckedUpdateManyWithoutStudentInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  content?: Prisma.StringFieldUpdateOperationsInput | string
-  rating?: Prisma.IntFieldUpdateOperationsInput | number
-  bookingId?: Prisma.StringFieldUpdateOperationsInput | string
-  tutorId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type ReviewUpsertWithWhereUniqueWithoutStudentInput = {
+  where: Prisma.ReviewWhereUniqueInput
+  update: Prisma.XOR<Prisma.ReviewUpdateWithoutStudentInput, Prisma.ReviewUncheckedUpdateWithoutStudentInput>
+  create: Prisma.XOR<Prisma.ReviewCreateWithoutStudentInput, Prisma.ReviewUncheckedCreateWithoutStudentInput>
+}
+
+export type ReviewUpdateWithWhereUniqueWithoutStudentInput = {
+  where: Prisma.ReviewWhereUniqueInput
+  data: Prisma.XOR<Prisma.ReviewUpdateWithoutStudentInput, Prisma.ReviewUncheckedUpdateWithoutStudentInput>
+}
+
+export type ReviewUpdateManyWithWhereWithoutStudentInput = {
+  where: Prisma.ReviewScalarWhereInput
+  data: Prisma.XOR<Prisma.ReviewUpdateManyMutationInput, Prisma.ReviewUncheckedUpdateManyWithoutStudentInput>
 }
 
 export type ReviewCreateManyTutorInput = {
@@ -807,7 +728,6 @@ export type ReviewCreateManyTutorInput = {
   rating?: number
   bookingId: string
   studentId: string
-  status?: $Enums.ReviewStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -816,7 +736,6 @@ export type ReviewUpdateWithoutTutorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.IntFieldUpdateOperationsInput | number
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   booking?: Prisma.BookingUpdateOneRequiredWithoutReviewNestedInput
@@ -829,7 +748,6 @@ export type ReviewUncheckedUpdateWithoutTutorInput = {
   rating?: Prisma.IntFieldUpdateOperationsInput | number
   bookingId?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -840,7 +758,46 @@ export type ReviewUncheckedUpdateManyWithoutTutorInput = {
   rating?: Prisma.IntFieldUpdateOperationsInput | number
   bookingId?: Prisma.StringFieldUpdateOperationsInput | string
   studentId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumReviewStatusFieldUpdateOperationsInput | $Enums.ReviewStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ReviewCreateManyStudentInput = {
+  id?: string
+  content: string
+  rating?: number
+  bookingId: string
+  tutorId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ReviewUpdateWithoutStudentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  rating?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  booking?: Prisma.BookingUpdateOneRequiredWithoutReviewNestedInput
+  tutor?: Prisma.TutorProfileUpdateOneRequiredWithoutReviewsNestedInput
+}
+
+export type ReviewUncheckedUpdateWithoutStudentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  rating?: Prisma.IntFieldUpdateOperationsInput | number
+  bookingId?: Prisma.StringFieldUpdateOperationsInput | string
+  tutorId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ReviewUncheckedUpdateManyWithoutStudentInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  rating?: Prisma.IntFieldUpdateOperationsInput | number
+  bookingId?: Prisma.StringFieldUpdateOperationsInput | string
+  tutorId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -854,7 +811,6 @@ export type ReviewSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   bookingId?: boolean
   studentId?: boolean
   tutorId?: boolean
-  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   booking?: boolean | Prisma.BookingDefaultArgs<ExtArgs>
@@ -869,7 +825,6 @@ export type ReviewSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   bookingId?: boolean
   studentId?: boolean
   tutorId?: boolean
-  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   booking?: boolean | Prisma.BookingDefaultArgs<ExtArgs>
@@ -884,7 +839,6 @@ export type ReviewSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   bookingId?: boolean
   studentId?: boolean
   tutorId?: boolean
-  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   booking?: boolean | Prisma.BookingDefaultArgs<ExtArgs>
@@ -899,12 +853,11 @@ export type ReviewSelectScalar = {
   bookingId?: boolean
   studentId?: boolean
   tutorId?: boolean
-  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ReviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "content" | "rating" | "bookingId" | "studentId" | "tutorId" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["review"]>
+export type ReviewOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "content" | "rating" | "bookingId" | "studentId" | "tutorId" | "createdAt" | "updatedAt", ExtArgs["result"]["review"]>
 export type ReviewInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   booking?: boolean | Prisma.BookingDefaultArgs<ExtArgs>
   student?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -935,7 +888,6 @@ export type $ReviewPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     bookingId: string
     studentId: string
     tutorId: string
-    status: $Enums.ReviewStatus
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["review"]>
@@ -1370,7 +1322,6 @@ export interface ReviewFieldRefs {
   readonly bookingId: Prisma.FieldRef<"Review", 'String'>
   readonly studentId: Prisma.FieldRef<"Review", 'String'>
   readonly tutorId: Prisma.FieldRef<"Review", 'String'>
-  readonly status: Prisma.FieldRef<"Review", 'ReviewStatus'>
   readonly createdAt: Prisma.FieldRef<"Review", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Review", 'DateTime'>
 }

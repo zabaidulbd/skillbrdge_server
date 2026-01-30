@@ -18,23 +18,22 @@ app.use(express.json());
 
 // Register
 app.post("/api/auth/register", async (req, res) => {
-  req.url = "/sign-up";
   return await toNodeHandler(auth)(req, res);
 });
 
 // Login
 app.post("/api/auth/login", async (req, res) => {
-  req.url = "/sign-in";
+  req.url = "/api/auth/sign-in";
   return await toNodeHandler(auth)(req, res);
 });
 
 // Me
 app.get("/api/auth/me", async (req, res) => {
-  req.url = "/get-session";
+  req.url = "/api/auth/get-session";
   return await toNodeHandler(auth)(req, res);
 });
 
-// app.all("/api/auth/*splat", toNodeHandler(auth));
+app.all("/api/auth/*splat", toNodeHandler(auth));
 
 // app.use("/posts", postRouter);
 // app.use("/comments", commentRouter);

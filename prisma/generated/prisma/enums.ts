@@ -19,14 +19,6 @@ export const BookingStatus = {
 export type BookingStatus = (typeof BookingStatus)[keyof typeof BookingStatus]
 
 
-export const ReviewStatus = {
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-} as const
-
-export type ReviewStatus = (typeof ReviewStatus)[keyof typeof ReviewStatus]
-
-
 export const TutorStatus = {
   ACTIVE: 'ACTIVE',
   INACTIVE: 'INACTIVE'

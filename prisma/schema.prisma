@@ -1,37 +1,41 @@
+
+generator client {
+  provider = "prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 model User {
-  id            String    @id @default(uuid())
+  id            String    @id
   name          String
-  email         String    
+  email         String
   emailVerified Boolean   @default(false)
   image         String?
-  password      String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
   role          String?   @default("STUDENT")
   phone         String?
   status        String?   @default("ACTIVE")
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
   sessions      Session[]
   accounts      Account[]
-  
-  tutorProfile  TutorProfile? 
-  bookings      Booking[]     
-  reviews       Review[]      
 
-  @@unique([email]) 
+  @@unique([email])
   @@map("user")
 }
 
 model Session {
-  id        String   @id @default(uuid())
+  id        String   @id
   expiresAt DateTime
-  token     String   
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   ipAddress String?
   userAgent String?
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   @@unique([token])
   @@index([userId])
@@ -39,7 +43,7 @@ model Session {
 }
 
 model Account {
-  id                    String    @id @default(uuid())
+  id                    String    @id
   accountId             String
   providerId            String
   userId                String
@@ -59,7 +63,7 @@ model Account {
 }
 
 model Verification {
-  id         String   @id @default(uuid())
+  id         String   @id
   identifier String
   value      String
   expiresAt  DateTime

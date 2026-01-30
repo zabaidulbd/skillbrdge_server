@@ -12,7 +12,6 @@ model Review {
   tutorId   String
   tutor     TutorProfile @relation(fields: [tutorId], references: [id], onDelete: Cascade)
 
-  status    ReviewStatus @default(APPROVED)
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
 
@@ -20,9 +19,4 @@ model Review {
   @@index([studentId])
   @@index([tutorId])
   @@map("reviews")
-}
-
-enum ReviewStatus {
-  APPROVED
-  REJECTED
 }
